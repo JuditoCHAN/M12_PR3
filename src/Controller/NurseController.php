@@ -30,7 +30,7 @@ class NurseController extends AbstractController
     
 
     #[Route('/login', name: 'app_login', methods:['POST'])]
-    public function login(Request $request): JsonResponse
+    public function login(Request $request): JsonResponse //el obj Request representa la solicitud HTTP que llega a la ruta /login
     {
         $gmail = $request->request->get('correo');
         $password = $request->request->get('password');
