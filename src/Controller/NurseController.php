@@ -44,6 +44,7 @@ class NurseController extends AbstractController
                 return $this->json(true) ;
             }
         }
-        return new JsonResponse(false);
+        //return new JsonResponse(false); //FALTA PONER EL Response::HTTP_OK(ES IGUAL QUE PONER 200)
+        return $this->json(false);
     }
 }
