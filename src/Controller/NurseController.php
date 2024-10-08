@@ -8,16 +8,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class NurseController extends AbstractController
+
+    
+
+    #[Route('/NurseController', name: 'Controller')]
+    
+        class NurseController extends AbstractController
 {
+
     public array $nurses = [
         ["id" => 1, "nombre" => "Juan", "correo" => "juan@gmail.com", "password" => "1234"],
         ["id" => 2, "nombre" => "Maria", "correo" => "Maria@gmail.com", "password" => "1234"],
         ["id" => 3, "nombre" => "Pepa", "correo" => "Pepa@gmail.com", "password" => "1234"],
         ["id" => 4, "nombre" => "Marc", "correo" => "Marc@gmail.com", "password" => "1234"]
     ];
-
-
  #[Route('/nurse', name: 'app_nurse', methods: ['GET'])]
     public function getAll(): JsonResponse
     {
@@ -48,3 +52,4 @@ class NurseController extends AbstractController
         return $this->json(false);
     }
 }
+
