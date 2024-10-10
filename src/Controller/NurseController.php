@@ -29,6 +29,32 @@ use Symfony\Component\Routing\Attribute\Route;
         //return $this->json($nurses);
         //return new Response(json_encode($nurses), Response::HTTP_OK, ['Content-Type' => 'application/json']);
     }
+ 2-find-nurse-by-name
+    #[Route('/name/{name}', name: 'findByName', methods: ['GET'])]
+    public function index($name): JsonResponse
+    {
+        $enfermerosFiltrados = [];
+        for ($i = 0; $i < count($this->nurses); $i++) {
+            if ($this->nurses[$i]['nombre'] === $name) {
+                $enfermerosFiltrados[] = $this->nurses[$i];
+                
+            }
+        }
+        if (empty($enfermerosFiltrados)) {
+            $enfermerosFiltrados = "No se ha encontrado el nombre";
+        }
+        return $this->json([
+            'message' => 'Filtrar enfermeros por nombre',
+            'filtered_data' =>$enfermerosFiltrados,
+            
+            
+        ]);   
+    }
+
+    
+   
+
+
 
 
     
@@ -51,5 +77,6 @@ use Symfony\Component\Routing\Attribute\Route;
         //return new JsonResponse(false); //FALTA PONER EL Response::HTTP_OK(ES IGUAL QUE PONER 200)
         return $this->json(false);
     }
+
 }
 
