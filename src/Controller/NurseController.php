@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Attribute\Route;
     
 
     #[Route('/NurseController', name: 'Controller')]
-    
         class NurseController extends AbstractController
 {
 
@@ -22,7 +21,9 @@ use Symfony\Component\Routing\Attribute\Route;
         ["id" => 3, "nombre" => "Pepa", "correo" => "Pepa@gmail.com", "password" => "1234"],
         ["id" => 4, "nombre" => "Marc", "correo" => "Marc@gmail.com", "password" => "1234"]
     ];
- #[Route('/nurse', name: 'app_nurse', methods: ['GET'])]
+
+
+    #[Route('/nurse', name: 'app_nurse', methods: ['GET'])]
     public function getAll(): JsonResponse
     {
         return new JsonResponse($this->nurses, Response::HTTP_OK);
