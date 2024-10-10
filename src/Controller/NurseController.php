@@ -29,7 +29,7 @@ use Symfony\Component\Routing\Attribute\Route;
         //return $this->json($nurses);
         //return new Response(json_encode($nurses), Response::HTTP_OK, ['Content-Type' => 'application/json']);
     }
- 2-find-nurse-by-name
+
     #[Route('/name/{name}', name: 'findByName', methods: ['GET'])]
     public function index($name): JsonResponse
     {
@@ -44,20 +44,12 @@ use Symfony\Component\Routing\Attribute\Route;
             $enfermerosFiltrados = "No se ha encontrado el nombre";
         }
         return $this->json([
-            'message' => 'Filtrar enfermeros por nombre',
-            'filtered_data' =>$enfermerosFiltrados,
+            
+            $enfermerosFiltrados,
             
             
         ]);   
     }
-
-    
-   
-
-
-
-
-    
 
     #[Route('/login', name: 'app_login', methods:['POST'])]
     public function login(Request $request): JsonResponse //el obj Request representa la solicitud HTTP que llega a la ruta /login
